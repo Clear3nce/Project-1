@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Portfolio</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    
+    <body>
+        <header class="header">
+            <div class="logo">
+                Clearence Muluvhu
+            </div>
+            <!-- navigation for desktop -->
+             <nav class="desktop-nav">
+                <a href="#">home</a>
+                <a href="#">about me</a>
+                <a href="#">skills</a>
+                <a href="#">projects</a>
+
+             </nav>
+
+             <button class="mobile-menu-toggle" aria-label="Menu">HH
+
+             </button>
+
+             <!-- navigation for mobile -->
+              <nav class="mobile-nav">
+                <a href="#">home</a>
+                <a href="#">about me</a>
+                <a href="#">skills</a>
+                <a href="#">projects</a>
+
+              </nav>
+
+        </header>
+       
+        
+        <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.querySelector(".mobile-menu-toggle");
+    const mobileNav = document.querySelector(".mobile-nav");
+    const overlay = document.createElement("div");
+    overlay.classList.add("overlay");
+    document.body.appendChild(overlay); // Fixed: Pass the element, not a string
+
+    toggleButton.addEventListener("click", function() {
+        mobileNav.classList.toggle("active");
+        overlay.classList.toggle("active");
+    });
+
+    overlay.addEventListener("click", function() {
+        mobileNav.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+});
+
+        </script>
+    </body>
+</html>
