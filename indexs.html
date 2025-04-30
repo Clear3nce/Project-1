@@ -19,10 +19,10 @@
             </div>
             <!-- navigation for desktop -->
              <nav class="desktop-nav">
-                <a href="#">home</a>
-                <a href="#">about me</a>
-                <a href="#">skills</a>
-                <a href="#">projects</a>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Skills</a>
+                <a href="#">Projects</a>
 
              </nav>
 
@@ -32,10 +32,10 @@
 
              <!-- navigation for mobile -->
               <nav class="mobile-nav">
-                <a href="#">home</a>
-                <a href="#">about me</a>
-                <a href="#">skills</a>
-                <a href="#">projects</a>
+                <a href="#" class="navLinks">Home</a>
+                <a href="#" class="navLinks">About</a>
+                <a href="#" class="navLinks">Skills</a>
+                <a href="#" class="navLinks">Projects</a>
 
               </nav>
 
@@ -43,24 +43,31 @@
        
         
         <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const toggleButton = document.querySelector(".mobile-menu-toggle");
+                const mobileNav = document.querySelector(".mobile-nav");
+                const overlay = document.createElement("div");
+                const navLinks=document.querySelectorAll(".navLinks")
+                overlay.classList.add("overlay");
 
-document.addEventListener("DOMContentLoaded", function() {
-    const toggleButton = document.querySelector(".mobile-menu-toggle");
-    const mobileNav = document.querySelector(".mobile-nav");
-    const overlay = document.createElement("div");
-    overlay.classList.add("overlay");
-    document.body.appendChild(overlay); // Fixed: Pass the element, not a string
+                document.body.appendChild(overlay); // Fixed: Pass the element, not a string
+                const allClickableElements = [...navLinks, overlay];
 
-    toggleButton.addEventListener("click", function() {
-        mobileNav.classList.toggle("active");
-        overlay.classList.toggle("active");
-    });
+                console.log(navLinks);
 
-    overlay.addEventListener("click", function() {
-        mobileNav.classList.remove("active");
-        overlay.classList.remove("active");
-    });
-});
+                toggleButton.addEventListener("click", function() {
+                    mobileNav.classList.toggle("active");
+                    overlay.classList.toggle("active");
+                });
+
+                allClickableElements.forEach((element)=>{
+                    element.addEventListener("click", () => {
+                        mobileNav.classList.remove("active");
+                        overlay.classList.remove("active");
+
+                    })
+                })
+            });
 
         </script>
     </body>
