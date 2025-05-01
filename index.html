@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Portfolio</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    </head>
+    
+    <body>
+        <header class="header">
+            <div class="logo">
+                Clearence Muluvhu
+            </div>
+            <!-- navigation for desktop -->
+             <nav class="desktop-nav">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Skills</a>
+                <a href="#">Projects</a>
+
+             </nav>
+
+             <button class="mobile-menu-toggle" aria-label="Menu"> <i class="fas fa-bars" id="menu-icon"></i>
+
+             </button>
+
+             <!-- navigation for mobile -->
+              <nav class="mobile-nav">
+                <a href="#" class="navLinks">Home</a>
+                <a href="#" class="navLinks">About</a>
+                <a href="#" class="navLinks">Skills</a>
+                <a href="#" class="navLinks">Projects</a>
+
+              </nav>
+
+        </header>
+       
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const toggleButton = document.querySelector(".mobile-menu-toggle");
+                const mobileNav = document.querySelector(".mobile-nav");
+                const overlay = document.createElement("div");
+                const navLinks=document.querySelectorAll(".navLinks")
+                overlay.classList.add("overlay");
+
+                document.body.appendChild(overlay); // Fixed: Pass the element, not a string
+                const allClickableElements = [...navLinks, overlay];
+
+                console.log(navLinks);
+
+                toggleButton.addEventListener("click", function() {
+                    mobileNav.classList.toggle("active");
+                    overlay.classList.toggle("active");
+                });
+
+                allClickableElements.forEach((element)=>{
+                    element.addEventListener("click", () => {
+                        mobileNav.classList.remove("active");
+                        overlay.classList.remove("active");
+
+                    })
+                })
+            });
+
+        </script>
+    </body>
+</html>
